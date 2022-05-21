@@ -12,7 +12,7 @@ import {
 
     export class SearchBar extends Component {
     static propTypes = {
-        onSubmit: PropTypes.func,
+        onSubmit: PropTypes.func.isRequired,
     };
 
     state = {
@@ -30,7 +30,6 @@ import {
         return;
         }
         this.props.onSubmit(this.state.query);
-        this.reset();
     };
 
     reset = () => {

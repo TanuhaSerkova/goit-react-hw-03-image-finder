@@ -37,7 +37,7 @@ export class App extends Component {
 
         this.setState({ isLoading: true });
 
-        fetchData(query, page, perPage)
+    fetchData(query, page, perPage)
         .then(({ hits, totalHits }) => {
             const totalPages = Math.ceil(totalHits / perPage);
 
@@ -53,14 +53,14 @@ export class App extends Component {
             toast.info("You've reached the end of search results.");
             }
 
-            const data = hits.map(({ id, webformatURL, largeImageURL, tags }) => {
+        const data = hits.map(({ id, webformatURL, largeImageURL, tags }) => {
             return {
                 id,
                 webformatURL,
                 largeImageURL,
                 tags,
             };
-            });
+        });
             this.setState(({ images }) => ({
             images: [...images, ...data],
             // page: page + 1,
@@ -84,7 +84,6 @@ export class App extends Component {
     onLoadMore = () => {
         this.setState(({ page }) => ({
         page: page + 1,
-        isLoading: true,
         }));
     };
 
